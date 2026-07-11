@@ -1,18 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IconSun, IconMoon } from "@tabler/icons-react";
 
 export function ThemeToggle() {
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    setDark(document.documentElement.classList.contains("dark"));
-  }, []);
+  const [dark, setDark] = useState(() =>
+    typeof window !== "undefined" && document.documentElement.classList.contains("dark")
+  );
 
   function toggle() {
     const next = !dark;
     document.documentElement.classList.toggle("dark", next);
+    localStorage.setItem("theme", next ? "dark" : "light");
     setDark(next);
   }
 

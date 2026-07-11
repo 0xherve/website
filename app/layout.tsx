@@ -25,6 +25,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${dmSans.variable} ${GeistPixelLine.variable} ${GeistMono.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            var saved = localStorage.getItem('theme');
+            var dark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (dark) document.documentElement.classList.add('dark');
+          })();
+        `}} />
+      </head>
       <body className="bg-background text-foreground antialiased">{children}</body>
       <Analytics />
     </html>
