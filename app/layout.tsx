@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Work_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
+import { DM_Sans } from "next/font/google";
+import { GeistMono } from "geist/font/mono";
+import { GeistPixelLine } from "geist/font/pixel";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-heading",
-  weight: ["700"],
-});
-
-const workSans = Work_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["300", "400"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
-  title: "Herve Rwigema",
+  title: "0xherve | Herve Rwigema",
   description: "Curious tinkerer",
   icons: {
     icon: "/logo.svg",
@@ -28,8 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${workSans.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${GeistPixelLine.variable} ${GeistMono.variable}`}>
       <body className="bg-background text-foreground antialiased">{children}</body>
+      <Analytics />
     </html>
   );
 }

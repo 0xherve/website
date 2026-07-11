@@ -7,27 +7,22 @@ const links = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-10 h-full w-full bg-background">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-3 sm:px-8 sm:py-4">
-        <Link
-          href="/"
-          className="text-xl font-bold text-foreground"
-        >
-          <span>0xherve</span>
+    <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-sm border-b border-border/40">
+      <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4 sm:px-8">
+        <Link href="/" className="text-md font-bold font-pixel text-foreground tracking-tight">
+          0xherve
         </Link>
-        
-        <div className="flex items-center gap-6 text-sm text-muted-foreground sm:gap-8">
-        {
-          links.map((link) => (
+
+        <div className="flex items-center gap-6">
+          {links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="text-base text-muted-foreground hover:text-foreground transition-colors"
             >
               {link.label}
             </Link>
-          ))
-        }
+          ))}
         </div>
       </nav>
     </header>

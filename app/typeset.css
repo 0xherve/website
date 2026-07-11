@@ -1,0 +1,8 @@
+.typeset {
+  --typeset-font-body: var(--font-sans);
+  --typeset-font-heading: var(--font-pixel);
+  --typeset-font-mono: var(--font-mono);
+  --typeset-size: 16px;
+  --typeset-leading: 1.75;
+  --typeset-flow: 1.25em;
+}

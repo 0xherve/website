@@ -1,42 +1,17 @@
-import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { siteConfig } from "@/lib/site-config";
+import Bio from "@/content/bio.mdx";
 
 export function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Header />
+      <main className="flex-1 mx-auto max-w-4xl w-full p-6 sm:p-8">
+        <h1 className="text-4xl sm:text-5xl font-black tracking-tight">
+          0xherve
+        </h1>
 
-      <main className="flex-1 mx-auto max-w-4xl w-full py-20">
-        <h1 className="text-5xl font-bold tracking-tight mb-4">Hey There!</h1>
-
-        <section className="space-y-4 text-foreground/70 leading-relaxed">
-          <p>
-            I am Herve. I am Rwandan a software engineer.
-          </p>
-          <p>
-            I like to refer to myself as a “modern software engineer”. I build most of the code I write with AI, and play with multiple tools to leave about how they work.
-            I am deeply bothered by redundancies, and I love improving code efficiency.
-            Currently, I have a strong interest in developer tooling like CLI tools, SDKs, and libraries.
-          </p>
-          <p>
-            I occasionally write on{" "}
-            <a
-              href='https://0xherve.substack.com'
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground underline underline-offset-4 decoration-border hover:decoration-foreground transition-colors"
-            >
-              Substack
-            </a>
-            . My other interests include: Formula 1, anime, and touching grass lol.
-          </p>
-          
-          <p>
-            My recent favorite band is Linkin Park.
-          </p>
-          
-        </section>
+        <div className="typeset">
+          <Bio />
+        </div>
       </main>
 
       <Footer />
