@@ -28,9 +28,9 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
-            var saved = localStorage.getItem('theme');
-            var dark = saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            if (dark) document.documentElement.classList.add('dark');
+            var dark = localStorage.getItem('theme') === 'dark';
+            document.documentElement.classList.toggle('dark', dark);
+            document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
           })();
         `}} />
       </head>

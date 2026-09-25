@@ -7,7 +7,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
         target={props.href?.startsWith("http") ? "_blank" : undefined}
         rel={props.href?.startsWith("http") ? "noopener noreferrer" : undefined}
-        className="text-foreground underline underline-offset-4 decoration-border hover:decoration-foreground transition-colors"
+        className="text-foreground underline underline-offset-4 decoration-muted-foreground/70 hover:decoration-foreground transition-colors"
       />
     ),
     ...components,

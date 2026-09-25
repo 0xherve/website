@@ -1,27 +1,33 @@
 "use client";
 
-import { useState } from "react";
-import { IconSun, IconMoon } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
+import { IconMoon, IconSun } from "@tabler/icons-react";
 
 export function ThemeToggle() {
-  const [dark, setDark] = useState(() =>
-    typeof window !== "undefined" && document.documentElement.classList.contains("dark")
-  );
+  const [dark, setDark] = useState(false);
 
-  function toggle() {
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  function toggleTheme() {
     const next = !dark;
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
     setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    document.documentElement.style.colorScheme = next ? "dark" : "light";
+    localStorage.setItem("theme", next ? "dark" : "light");
   }
 
   return (
     <button
-      onClick={toggle}
-      className="text-muted-foreground/75 hover:text-foreground transition-colors"
-      aria-label="Toggle theme"
+      onClick={toggleTheme}
+      className="text-muted-foreground/75 transition-colors hover:text-foreground"
+      aria-label={`Switch to ${dark ? "light" : "dark"} theme`}
+      title={`Switch to ${dark ? "light" : "dark"} theme`}
     >
       {dark ? <IconSun size={18} /> : <IconMoon size={18} />}
     </button>
   );
 }
+
+
